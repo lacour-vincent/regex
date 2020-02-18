@@ -1,0 +1,17 @@
+{
+  "name": "regex",
+  "version": "1.0.0",
+  "description": "A regular expression is a sequence of characters that define a search pattern",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lacour-vincent/regex.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "@types/jest": "^25.1.2"
+  }
+}
