@@ -119,3 +119,43 @@ describe("Zipcode", () => {
     expect(isZipcode).toBe(false);
   });
 });
+
+describe("Hex color", () => {
+  const HEXCOLOR_REGEX = /^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6}|[a-fA-F0-9]{8})$/;
+
+  it("should return true - classic hex color", () => {
+    const hexColor = "#FFFFFF";
+    const isHexColor = HEXCOLOR_REGEX.test(hexColor);
+    expect(isHexColor).toBe(true);
+  });
+
+  it("should return true - hex color simplified", () => {
+    const hexColor = "#FFF";
+    const isHexColor = HEXCOLOR_REGEX.test(hexColor);
+    expect(isHexColor).toBe(true);
+  });
+
+  it("should return true - hex color with transparency", () => {
+    const hexColor = "#FFFFFF80";
+    const isHexColor = HEXCOLOR_REGEX.test(hexColor);
+    expect(isHexColor).toBe(true);
+  });
+
+  it("should return false - hex color no valid", () => {
+    const hexColor = "#FFFFFG";
+    const isHexColor = HEXCOLOR_REGEX.test(hexColor);
+    expect(isHexColor).toBe(false);
+  });
+
+  it("should return false - missing #", () => {
+    const hexColor = "FFFFFF";
+    const isHexColor = HEXCOLOR_REGEX.test(hexColor);
+    expect(isHexColor).toBe(false);
+  });
+
+  it("should return false - wrong lenght", () => {
+    const hexColor = "#FFFFF";
+    const isHexColor = HEXCOLOR_REGEX.test(hexColor);
+    expect(isHexColor).toBe(false);
+  });
+});
