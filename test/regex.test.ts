@@ -159,3 +159,49 @@ describe("Hex color", () => {
     expect(isHexColor).toBe(false);
   });
 });
+
+describe("Slug", () => {
+  const SLUG_REGEX = /^[a-z0-9-]{1,}$/;
+
+  it("should return true - slug all lowercase", () => {
+    const slug = "slug";
+    const isSlug = SLUG_REGEX.test(slug);
+    expect(isSlug).toBe(true);
+  });
+
+  it("should return true - slug with digit", () => {
+    const slug = "slug42";
+    const isSlug = SLUG_REGEX.test(slug);
+    expect(isSlug).toBe(true);
+  });
+
+  it("should return true - slug with hyphen", () => {
+    const slug = "slug-with-hyphen";
+    const isSlug = SLUG_REGEX.test(slug);
+    expect(isSlug).toBe(true);
+  });
+
+  it("should return true - slug with digit and hyphen", () => {
+    const slug = "slug-with-digit-and-hyphen";
+    const isSlug = SLUG_REGEX.test(slug);
+    expect(isSlug).toBe(true);
+  });
+
+  it("should return false - slug with uppercase", () => {
+    const slug = "Slug";
+    const isSlug = SLUG_REGEX.test(slug);
+    expect(isSlug).toBe(false);
+  });
+
+  it("should return false - slug with special character", () => {
+    const slug = "slug$";
+    const isSlug = SLUG_REGEX.test(slug);
+    expect(isSlug).toBe(false);
+  });
+
+  it("should return false - slug with underscore", () => {
+    const slug = "slug_with_underscore";
+    const isSlug = SLUG_REGEX.test(slug);
+    expect(isSlug).toBe(false);
+  });
+});

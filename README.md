@@ -2,14 +2,14 @@
 
 ## Basics
 
-|  Code  | Description                  |
-| :----: | ---------------------------- |
-|  `.`   | Any character except newline |
-|  `a`   | The character a              |
-|  `ab`  | The string ab                |
-| `a\|b` | a or b                       |
-|  `a*`  | 0 or more a                  |
-|  `\`   | Escapes a special character  |
+|               Code                | Description                  |
+| :-------------------------------: | ---------------------------- |
+|                `.`                | Any character except newline |
+|                `a`                | The character a              |
+|               `ab`                | The string ab                |
+|              `a\|b`               | a or b                       |
+|               `a*`                | 0 or more a                  |
+| `\` | Escapes a special character |
 
 ## Quantifiers
 
@@ -37,14 +37,14 @@
 
 ## Classes
 
-| Code  | Description            |
-| :---: | ---------------------- |
-| `\d`  | One digit              |
-| `\D`  | One non-digit          |
-| `\s`  | One whitespace         |
-| `\S`  | One non-whitespace     |
-| `\w`  | One word character     |
-| `\W`  | One non-word character |
+| Code | Description            |
+| :--: | ---------------------- |
+| `\d` | One digit              |
+| `\D` | One non-digit          |
+| `\s` | One whitespace         |
+| `\S` | One non-whitespace     |
+| `\w` | One word character     |
+| `\W` | One non-word character |
 
 ## Assertions
 
@@ -68,4 +68,4 @@
 | Birthdate | `/^(0[1-9]\|[12][0-9]\|3[01])\/(0[1-9]\|1[0-2])\/\d{4}$/` |
 |  Zipcode  | `/^\d{5}$/`                                               |
 | HexColor  | `/^#([a-fA-F0-9]{3}\|[a-fA-F0-9]{6}\|[a-fA-F0-9]{8})$/`   |
-
+|   Slug    | `/^[a-z0-9-]{1,}$/`                                       |
