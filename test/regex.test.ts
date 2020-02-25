@@ -54,6 +54,70 @@ describe("Password", () => {
   });
 });
 
+describe("Email", () => {
+  const EMAIL_REGEX = /^([a-z]{1})([a-z0-9-_\.]{1,})\@([a-z0-9-]{1,})\.([a-z]{2,6})$/;
+
+  it("should return true - classic email", () => {
+    const email = "vincent@github.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(true);
+  });
+
+  it("should return true - user digit", () => {
+    const email = "vincent42@github.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(true);
+  });
+
+  it("should return true - user with dot", () => {
+    const email = "vincent.lacour@github.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(true);
+  });
+
+  it("should return true - user with underscore", () => {
+    const email = "vincent_lacour@github.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(true);
+  });
+
+  it("should return true - user with hyphen", () => {
+    const email = "vincent-lacour@github.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(true);
+  });
+
+  it("should return true - domain with digit", () => {
+    const email = "vincent@github42.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(true);
+  });
+
+  it("should return true - domain with hyphen", () => {
+    const email = "vincent@github-test.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(true);
+  });
+
+  it("should return false - user begin with digit", () => {
+    const email = "42vincent@github.com";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(false);
+  });
+
+  it("should return false - extension with digit", () => {
+    const email = "vincent@github.com42";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(false);
+  });
+
+  it("should return false - extension too long", () => {
+    const email = "vincent@github.coooooom";
+    const isEmail = EMAIL_REGEX.test(email);
+    expect(isEmail).toBe(false);
+  });
+});
+
 describe("Birthdate", () => {
   const BIRTHDATE_REGEX = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
   it("should return true - day inferior to 10", () => {
