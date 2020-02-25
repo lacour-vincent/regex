@@ -163,6 +163,58 @@ describe("Birthdate", () => {
   });
 });
 
+describe("Phone (FR)", () => {
+  const PHONE_FR_REGEX = /^(\+33){0,1}(0){0,1}([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})$/;
+
+  it("should return true - phone 06", () => {
+    const phone = "0601020304";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(true);
+  });
+
+  it("should return true - phone 07", () => {
+    const phone = "0701020304";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(true);
+  });
+
+  it("should return true - phone +33", () => {
+    const phone = "+33701020304";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(true);
+  });
+
+  it("should return false - phone +32", () => {
+    const phone = "+32701020304";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(false);
+  });
+
+  it("should return false - phone 00", () => {
+    const phone = "0001020304";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(false);
+  });
+
+  it("should return false - phone too short", () => {
+    const phone = "06010203";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(false);
+  });
+
+  it("should return false - phone too long", () => {
+    const phone = "060102030405";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(false);
+  });
+
+  it("should return false - phone with char", () => {
+    const phone = "06O1020304";
+    const isPhone = PHONE_FR_REGEX.test(phone);
+    expect(isPhone).toBe(false);
+  });
+});
+
 describe("Zipcode", () => {
   const ZIPCODE_REGEX = /^\d{5}$/;
   it("should return true - classic zipcode", () => {
