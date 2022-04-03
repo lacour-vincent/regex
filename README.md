@@ -2,14 +2,14 @@
 
 ## Basics
 
-|               Code                | Description                  |
-| :-------------------------------: | ---------------------------- |
-|                `.`                | Any character except newline |
-|                `a`                | The character a              |
-|               `ab`                | The string ab                |
-|              `a\|b`               | a or b                       |
-|               `a*`                | 0 or more a                  |
-| `\` | Escapes a special character |
+|  Code  | Description                  |
+| :----: | ---------------------------- |
+|  `.`   | Any character except newline |
+|  `a`   | The character a              |
+|  `ab`  | The string ab                |
+| `a\|b` | a or b                       |
+|  `a*`  | 0 or more a                  |
+|  `\`   | Escapes a special character  |
 
 ## Quantifiers
 
